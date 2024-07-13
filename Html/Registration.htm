@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/reg.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container-fluid">
+            <div class="row align-items-center py-2">
+                <div class="col-md-8">
+                    <div class="logo-container">
+                        <img src="/Images/emblem-dark.png" alt="Indian Emblem">
+                        <img src="/Images/i4clogo.jpg" alt="Indian Cyber Crime Coordination Centre">
+                        <div class="portal-name">
+                            <div><b>Cyber Swachata</b></div>
+                            <div>Cyber Crime Reporting Portal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="/Images/AKAM_logo.jpg" alt="Azadi Ka Amrit Mahotsav" class="azadi-logo">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+              <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                  <ul class="navbar-nav">
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/Final%20project.htm#"><i class="fas fa-home"></i></a></li>
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/Final%20project.htm#about-section" target="_blank">ABOUT</a></li>
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/Registration.htm">REGISTER A COMPLAINT</a></li>
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/retrieve.html" target="_blank">COMPLAINT STATUS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/Signup.html?#">SIGN UP</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+
+    <!-- Forms -->
+    <div class="container mt-4">
+        <div class="alert alert-info">
+            Complaint / Incident Details
+        </div>
+
+        <form id="complaintForm">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category of complaint*</label>
+                <select class="form-select" id="category" required>
+                    <option value="">---Select---</option>
+                    <option value="cybercrime">Cybercrime</option>
+                    <option value="fraud">Fraud</option>
+                    <option value="theft">Theft</option>
+                    <option value="harassment">Harassment</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="subCategory" class="form-label">Sub-Category of complaint:*</label>
+                <select class="form-select" id="subCategory" required>
+                    <option value="">--Select--</option>
+                    <option value="hacking">Hacking</option>
+                    <option value="identity_theft">Identity Theft</option>
+                    <option value="phishing">Phishing</option>
+                    <option value="online_scam">Online Scam</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Approximate date & time of incident/receiving/viewing of content*</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" id="incidentDate" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control custom-placeholder" id="incidentHour" placeholder="HH" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control custom-placeholder" id="incidentMinute" placeholder="MM" required>
+                    </div>                    
+                    <div class="col-md-2">
+                        <select class="form-select" id="incidentAmPm">
+                            <option>AM</option>
+                            <option>PM</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Is there any delay in reporting?</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="delay" id="delayYes" value="yes">
+                        <label class="form-check-label" for="delayYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="delay" id="delayNo" value="no" checked>
+                        <label class="form-check-label" for="delayNo">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="incidentLocation" class="form-label">Where did the incident occur?*</label>
+                <select class="form-select" id="incidentLocation" required>
+                    <option value="">---Select---</option>
+                    <option value="online">Online</option>
+                    <option value="home">Home</option>
+                    <option value="workplace">Workplace</option>
+                    <option value="public_place">Public Place</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="additionalInfo" class="form-label">Please provide any additional information about the incident:*</label>
+                <textarea class="form-control" id="additionalInfo" rows="4" required></textarea>
+                <small class="text-muted custom-text-color">
+                    (Insert at least 200 Characters. Special Characters like ~!@#^*${}><>* are not allowed)
+                </small>
+                <div class="mt-1">
+                    <small class="text-muted custom-text-color">Maximum of 1500 characters - <span id="charCount">1500</span> characters left</small>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Complaint</button>
+        </form>
+    </div>
+    <!--  -->
+    <div class="container mt-4">
+        <h3>Check Complaint Status</h3>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="complaintId" placeholder="Enter your complaint ID">
+            <button class="btn btn-outline-secondary" type="button" id="checkStatus">Check Status</button>
+        </div>
+        <div id="statusResult"></div>
+    </div>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const uniqueId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            
+            const formData = {
+                category: document.getElementById('category').value,
+                subCategory: document.getElementById('subCategory').value,
+                incidentDate: document.getElementById('incidentDate').value,
+                incidentTime: `${document.getElementById('incidentHour').value}:${document.getElementById('incidentMinute').value} ${document.getElementById('incidentAmPm').value}`,
+                delay: document.querySelector('input[name="delay"]:checked').value,
+                incidentLocation: document.getElementById('incidentLocation').value,
+                additionalInfo: document.getElementById('additionalInfo').value,
+                status: 'Submitted' // Add a status field
+            };
+            
+            localStorage.setItem(uniqueId, JSON.stringify(formData));
+            
+            alert(`Your complaint has been submitted. Your ID is: ${uniqueId}`);
+            
+            this.reset();
+        });
+
+        document.getElementById('additionalInfo').addEventListener('input', function() {
+            const maxLength = 1500;
+            const remaining = maxLength - this.value.length;
+            document.getElementById('charCount').textContent = remaining;
+        });
+
+        // Add this new event listener for checking status
+        document.getElementById('checkStatus').addEventListener('click', function() {
+            const id = document.getElementById('complaintId').value;
+            const storedData = localStorage.getItem(id);
+            const resultDiv = document.getElementById('statusResult');
+
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                resultDiv.innerHTML = `
+                    <h4>Complaint Details:</h4>
+                    <p><strong>Category:</strong> ${formData.category}</p>
+                    <p><strong>Sub-Category:</strong> ${formData.subCategory}</p>
+                    <p><strong>Incident Date:</strong> ${formData.incidentDate}</p>
+                    <p><strong>Incident Time:</strong> ${formData.incidentTime}</p>
+                    <p><strong>Status:</strong> ${formData.status}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = '<p>No complaint found with this ID.</p>';
+            }
+        });
+        // Nav bar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.classList.add('highlight');
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.classList.remove('highlight');
+                });
+            });
+
+            // Randomly highlight a nav item every 5 seconds
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * navLinks.length);
+                navLinks[randomIndex].classList.add('highlight');
+                setTimeout(() => {
+                    navLinks[randomIndex].classList.remove('highlight');
+                }, 1000);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 50px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        .logo-container img:hover {
+            transform: scale(1.1);
+        }
+        .portal-name {
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+        .nav-link {
+            color: #e0e0e0 !important;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .azadi-logo {
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            gap: 10px;
+        }
+        .nav-item {
+            white-space: nowrap;
+        }
+        .nav-link {
+            padding: 0.5rem 0.75rem !important;
+        }
+        @media (max-width: 991px) {
+            .navbar-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-item {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .highlight {
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+            }
+        }
+        .navbar {
+            background-color: #1e1e1e !important;
+        }
+        .form-control, .form-select {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            border-color: #666;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #3700B3;
+            border-color: #3700B3;
+        }
+        .btn-primary:hover {
+            background-color: #5600E8;
+            border-color: #5600E8;
+        }
+        .alert-info {
+            background-color: #1e3a5f;
+            color: #e0e0e0;
+            border-color: #2a5285;
+        }
+        .custom-text-color {
+            color: white !important;
+        }
+        .custom-placeholder::placeholder {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container-fluid">
+            <div class="row align-items-center py-2">
+                <div class="col-md-8">
+                    <div class="logo-container">
+                        <img src="/Cyber Crime Portal_files/emblem-dark.png" alt="Indian Emblem">
+                        <img src="/Cyber Crime Portal_files/i4clogo.jpg" alt="Indian Cyber Crime Coordination Centre">
+                        <div class="portal-name">
+                            <div><b>Cyber Swachata</b></div>
+                            <div>Cyber Crime Reporting Portal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="/Cyber Crime Portal_files/AKAM_logo.jpg" alt="Azadi Ka Amrit Mahotsav" class="azadi-logo">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid">
+              <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                  <ul class="navbar-nav">
+                      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i></a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+                      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5502/Html/Registration.htm">REGISTER A COMPLAINT</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">SIGN UP</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+
+    <!-- Forms -->
+    <div class="container mt-4">
+        <div class="alert alert-info">
+            Complaint / Incident Details
+        </div>
+
+        <form id="complaintForm">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category of complaint*</label>
+                <select class="form-select" id="category" required>
+                    <option value="">---Select---</option>
+                    <option value="cybercrime">Cybercrime</option>
+                    <option value="fraud">Fraud</option>
+                    <option value="theft">Theft</option>
+                    <option value="harassment">Harassment</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="subCategory" class="form-label">Sub-Category of complaint:*</label>
+                <select class="form-select" id="subCategory" required>
+                    <option value="">--Select--</option>
+                    <option value="hacking">Hacking</option>
+                    <option value="identity_theft">Identity Theft</option>
+                    <option value="phishing">Phishing</option>
+                    <option value="online_scam">Online Scam</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Approximate date & time of incident/receiving/viewing of content*</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" id="incidentDate" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control custom-placeholder" id="incidentHour" placeholder="HH" required>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control custom-placeholder" id="incidentMinute" placeholder="MM" required>
+                    </div>                    
+                    <div class="col-md-2">
+                        <select class="form-select" id="incidentAmPm">
+                            <option>AM</option>
+                            <option>PM</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Is there any delay in reporting?</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="delay" id="delayYes" value="yes">
+                        <label class="form-check-label" for="delayYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="delay" id="delayNo" value="no" checked>
+                        <label class="form-check-label" for="delayNo">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="incidentLocation" class="form-label">Where did the incident occur?*</label>
+                <select class="form-select" id="incidentLocation" required>
+                    <option value="">---Select---</option>
+                    <option value="online">Online</option>
+                    <option value="home">Home</option>
+                    <option value="workplace">Workplace</option>
+                    <option value="public_place">Public Place</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="additionalInfo" class="form-label">Please provide any additional information about the incident:*</label>
+                <textarea class="form-control" id="additionalInfo" rows="4" required></textarea>
+                <small class="text-muted custom-text-color">
+                    (Insert at least 200 Characters. Special Characters like ~!@#^*${}><>* are not allowed)
+                </small>
+                <div class="mt-1">
+                    <small class="text-muted custom-text-color">Maximum of 1500 characters - <span id="charCount">1500</span> characters left</small>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Complaint</button>
+        </form>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const uniqueId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+            
+            const formData = {
+                category: document.getElementById('category').value,
+                subCategory: document.getElementById('subCategory').value,
+                incidentDate: document.getElementById('incidentDate').value,
+                incidentTime: `${document.getElementById('incidentHour').value}:${document.getElementById('incidentMinute').value} ${document.getElementById('incidentAmPm').value}`,
+                delay: document.querySelector('input[name="delay"]:checked').value,
+                incidentLocation: document.getElementById('incidentLocation').value,
+                additionalInfo: document.getElementById('additionalInfo').value
+            };
+            
+            localStorage.setItem(uniqueId, JSON.stringify(formData));
+            
+            alert(`Your complaint has been submitted. Your ID is: ${uniqueId}`);
+            
+            this.reset();
+        });
+
+        document.getElementById('additionalInfo').addEventListener('input', function() {
+            const maxLength = 1500;
+            const remaining = maxLength - this.value.length;
+            document.getElementById('charCount').textContent = remaining;
+        });
+        // Nav bar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.classList.add('highlight');
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.classList.remove('highlight');
+                });
+            });
+
+            // Randomly highlight a nav item every 5 seconds
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * navLinks.length);
+                navLinks[randomIndex].classList.add('highlight');
+                setTimeout(() => {
+                    navLinks[randomIndex].classList.remove('highlight');
+                }, 1000);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+
+
