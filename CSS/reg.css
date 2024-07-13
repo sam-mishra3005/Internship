@@ -1,0 +1,118 @@
+:root {
+    --dark-teal: #001414;
+    --deep-purple: #3B3355;
+    --muted-purple: #5D5D81;
+    --light-blue: #BFCDE0;
+    --off-white: #FEFCFD;
+}
+body {
+    background-color: var(--off-white);
+    color: var(--dark-teal);
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo-container img {
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+.logo-container img:hover {
+    transform: scale(1.1);
+}
+.portal-name {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: var(--deep-purple);
+}
+.navbar {
+    background-color: var(--deep-purple) !important;
+}
+.nav-link {
+    color: var(--off-white) !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--light-blue);
+    transition: all 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+.azadi-logo {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    gap: 10px;
+}
+.nav-item {
+    white-space: nowrap;
+}
+.nav-link {
+    padding: 0.5rem 0.75rem !important;
+}
+@media (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}
+.highlight {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px var(--light-blue), 0 0 10px var(--light-blue), 0 0 15px var(--light-blue);
+    }
+    to {
+        text-shadow: 0 0 10px var(--light-blue), 0 0 20px var(--light-blue), 0 0 30px var(--light-blue);
+    }
+}
+.form-control, .form-select {
+    background-color: var(--light-blue);
+    color: var(--dark-teal);
+    border-color: var(--muted-purple);
+}
+.form-control:focus, .form-select:focus {
+    background-color: var(--off-white);
+    color: var(--dark-teal);
+    border-color: var(--deep-purple);
+    box-shadow: 0 0 0 0.25rem rgba(59, 51, 85, 0.25);
+}
+.btn-primary {
+    background-color: var(--deep-purple);
+    border-color: var(--deep-purple);
+}
+.btn-primary:hover {
+    background-color: var(--muted-purple);
+    border-color: var(--muted-purple);
+}
+.alert-info {
+    background-color: var(--light-blue);
+    color: var(--dark-teal);
+    border-color: var(--muted-purple);
+}
+.custom-text-color {
+    color: var(--dark-teal) !important;
+}
+.custom-placeholder::placeholder {
+    color: var(--muted-purple);
+}
